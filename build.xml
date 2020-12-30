@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="easy-testing-tech">
+	<import file="allset-config-ant/src/main/resources/target/maven/maven-build.xml" />
+	<import file="allset-config-ant/src/main/resources/target/maven/maven-scm-git.xml" />
+</project>

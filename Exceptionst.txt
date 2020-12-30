@@ -1,0 +1,53 @@
+@Test(expectedExceptions) is useful for the most common cases:
+
+You expect a specific exception to be thrown
+You need the message of that exception to contain specific words
+Per the documentation a test will fail if no expectedException is thrown:
+
+The list of exceptions that a test method is expected to throw. If no exception or a different than one on this list is thrown, this test will be marked a failure.
+
+Here are a few scenarios where @Test(expectedExceptions) is not sufficient:
+
+Your test method has several statements and only one of them is expected to throw
+You are throwing your own type of exception and you need to make sure it matches a certain criterion
+In such cases, you should just revert to the traditional (pre-TestNG) pattern:
+
+try {
+  // your statement expected to throw
+  fail();
+}
+catch(<the expected exception>) {
+  // pass
+}
+
+
+ { 
+   { "test1", "test2", new int[]{ 8080 }, new String[]{ "MYSQL_ROOT_PASSWORD=root" }, "src/test/resources", true                                    }, 
+   { ""     , "test2", new int[]{ 8080 }, new String[]{ "MYSQL_ROOT_PASSWORD=root" }, "src/test/resources", InvalidNameException.class              }, 
+   { null   , "test2", new int[]{ 8080 }, new String[]{ "MYSQL_ROOT_PASSWORD=root" }, "src/test/resources", InvalidNameException.class              }, 
+   { "test1", ""     , new int[]{ 8080 }, new String[]{ "MYSQL_ROOT_PASSWORD=root" }, "src/test/resources", InvalidDescriptionException.class       }, 
+   { "test1", null   , new int[]{ 8080 }, new String[]{ "MYSQL_ROOT_PASSWORD=root" }, "src/test/resources", InvalidDescriptionException.class       }, 
+   { "test1", "test2", null             , new String[]{ "MYSQL_ROOT_PASSWORD=root" }, "src/test/resources", InvalidPortException.class              },  
+   { "test1", "test2", new int[]{}      , new String[]{ "MYSQL_ROOT_PASSWORD=root" }, "src/test/resources", InvalidPortException.class              }, 
+   { "test1", "test2", new int[]{ 8080 }, null                                      , "src/test/resources", InvalidDataBaseParameterException.class }, 
+   { "test1", "test2", new int[]{ 8080 }, new String[]{}                            , "src/test/resources", InvalidDataBaseParameterException.class }, 
+   { "test1", "test2", new int[]{ 8080 }, new String[]{ null, "test=test" }         , "src/test/resources", InvalidDataBaseParameterException.class }, 
+   { "test1", "test2", new int[]{ 8080 }, new String[]{ "MYSQL_ROOT_PASSWORD=root" }, ""                  , InvalidResourceException.class          }, 
+   { "test1", "test2", new int[]{ 8080 }, new String[]{ "MYSQL_ROOT_PASSWORD=root" }, null                , InvalidResourceException.class          }, 
+   { "test1", "test2", new int[]{ 8080 }, new String[]{ "MYSQL_ROOT_PASSWORD=root" }, "is not a dir"      , InvalidResourceException.class          } 
+ }
+ 
+ 
+{ 
+  // Input X , Input Y, result     x and y don't be null (throw NullPointerException) AND x don't be 10 times from y OR x / y = odd number (throw InvalidArgumentException) [its Valid]
+    {   5    ,   null ,         },   
+    {   30   ,   1    ,         }, // 
+    {   30   ,   2    ,         }, // 
+    {   30   ,   9    ,         }, //
+    {   30   ,   10   ,         }, //
+    {   30   ,   5    ,         }, //
+    {   18   ,   5    ,         }, //
+    {   19   ,   5    ,         }, //
+    {   54   ,   5    ,         }, //
+    {   55   ,   5    ,         }, //               
+}                
