@@ -87,6 +87,6 @@ Another example with JUnit:
     @MethodSource("randomTestingData")
     public void randomTestingTest(final String description, final Integer amount) {
 		final var service = new DescriptionService();
-		servico.execute(description, amount);
+		service.execute(description, amount);
     }
 ```
