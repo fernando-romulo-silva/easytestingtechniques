@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="easytestingtechniques">
-	<import file="direct-ant/src/main/resources/target/maven/maven-build.xml" />
-	<import file="direct-ant/src/main/resources/target/maven/maven-scm-git.xml" />
+
+	<import>
+		<javaresource classpath="ant-common-tasks.jar" name="targets/maven/maven-build.xml" />
+	</import>
+
 </project>
