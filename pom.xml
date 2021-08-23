@@ -42,8 +42,8 @@
 
 	<scm>
 		<url>https://github.com/fernando-romulo-silva/easytestingtechniques</url>
-		<connection>scm:git:https://github.com/fernando-romulo-silva/easytestingtechniques.git</connection>
-		<developerConnection>scm:git:https://github.com/fernando-romulo-silva/easytestingtechniques.git</developerConnection>
+		<connection>scm:git:ssh://git@github.com/fernando-romulo-silva/easytestingtechniques.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/fernando-romulo-silva/easytestingtechniques.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>	
 
