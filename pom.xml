@@ -14,7 +14,7 @@
 		<testng.version>7.3.0</testng.version>
 		<slf4j.version>1.7.30</slf4j.version>
 		<assertj.version>3.18.1</assertj.version>
-		<equalsverifier.version>3.4.3</equalsverifier.version>
+		<equalsverifier.version>3.14</equalsverifier.version>
 
 		<checkstyle.config.location>checkstyle.xml</checkstyle.config.location>
 		<maven.source.plugin.version>3.0.1</maven.source.plugin.version>
@@ -26,10 +26,8 @@
 		<commons.text.version>1.9</commons.text.version>
 		<commons.collections4.version>4.4</commons.collections4.version>
 
-		<maven.compiler.source>14</maven.compiler.source>
-		<maven.compiler.target>14</maven.compiler.target>
 	</properties>
-	
+
 	<licenses>
 		<license>
 			<name>The Apache Software License, Version 2.0</name>
@@ -45,7 +43,7 @@
 		<connection>scm:git:ssh://git@github.com/fernando-romulo-silva/easytestingtechniques.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com/fernando-romulo-silva/easytestingtechniques.git</developerConnection>
 		<tag>HEAD</tag>
-	</scm>	
+	</scm>
 
 	<dependencies>
 		<!-- TestNG : Automated Tests -->
@@ -109,7 +107,7 @@
 		<dependency>
 			<groupId>com.anyqn.lib</groupId>
 			<artifactId>pairwiser</artifactId>
-			<version>0.1.8</version> <!-- 0.1.10, 0.1.12 -->
+			<version>0.1.21</version> <!-- 0.1.10, 0.1.12 -->
 			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
@@ -119,9 +117,19 @@
 					<groupId>ch.qos.logback</groupId>
 					<artifactId>logback-classic</artifactId>
 				</exclusion>
+				<exclusion>
+					<groupId>org.projectlombok</groupId>
+					<artifactId>lombok</artifactId>				
+				</exclusion>
 			</exclusions>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.22</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -131,11 +139,6 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${maven.compiler.plugin.version}</version>
-				<configuration>
-					<compilerArgs>
-						--enable-preview
-					</compilerArgs>
-				</configuration>
 			</plugin>
 		</plugins>
 
