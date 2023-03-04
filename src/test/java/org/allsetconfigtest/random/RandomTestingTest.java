@@ -88,7 +88,7 @@ public class RandomTestingTest {
 		.max() //
 		.getAsInt();
 
-	assertThat(parameters.length).isEqualTo(dataResult[0].length);
+	assertThat(parameters).hasSameSizeAs(dataResult[0]);
 	assertThat(qtyTestCase).isEqualTo(dataResult.length);
 
 	final Predicate<Integer> qtProdRule = p -> p.intValue() >= qtyMinValue && p.intValue() <= qtyMaxValue;
